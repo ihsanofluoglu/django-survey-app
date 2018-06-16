@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Answer</title>
+    </head>
+    <body>
+    {% extends 'up_bar.html' %}
+    {% block content %}
+        <span> New Question </span>
+
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <input type="submit" class="btn btn-default" value="Add Question" />
+                            </form>
+
+    {% endblock content %}
+    </body>
+</html>

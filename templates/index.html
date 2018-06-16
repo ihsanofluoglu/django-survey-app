@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="UTF-8">
+        <title>Index</title>
+    </head>
+    <body>
+    {% extends 'up_bar.html' %}
+    {% block content %}
+        {% if lastest_question_list %}
+            {% for question in lastest_question_list.all %}
+                <a href="{% url 'detail' question.id %}" >{{ question.question_title }}</a>|<a href="{% url 'delete' question.id  %}"> del </a></br>
+            {% endfor %}
+        {% else %}
+            <p>Veri bulunmuyor.Soru Ekleyin.<a href="/question/new/">New Question</a></p>
+        {% endif %}
+        {% endblock content %}
+    </body>
+</html>

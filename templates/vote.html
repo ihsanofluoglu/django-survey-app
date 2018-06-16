@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vote</title>
+</head>
+<body>
+{% extends 'up_bar.html' %}
+        {% block content %}
+    {% if question.choice_set %}
+        {% for choice in question.choice_set.all %}
+            {{ choice.choice_text }} -> {{ choice.choice_result }} <br>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+</body>
+</html>

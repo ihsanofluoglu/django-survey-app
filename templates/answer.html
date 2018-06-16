@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Answer</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <style type="text/css">
+            a{color:white}
+        </style>
+    </head>
+    <body>
+    {% extends 'up_bar.html' %}
+    {% block content %}
+        <div class="row">
+            <div class="content">
+                <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                        <h3 class="panel-title">{{ question.question_title }}</h3>
+                        </div>
+                        <div class="panel-body">
+                            {{ question.question_text }}
+                        </div>
+                    </div>
+                </div>
+                </div>
+                    <div class="col-md-4"></div>
+                    <div style="float: left;">
+                    <form action="" method="post">
+                        <input type="hidden" value="{{ question.id }}" name="idd">
+                    {% csrf_token %}
+                    {{ form.as_ul }}
+                        <input type="submit" value="Choice" class="btn btn-default">
+                    </form>
+                </div>
+        </div>
+    {% endblock content %}
+    </body>
+</html>
